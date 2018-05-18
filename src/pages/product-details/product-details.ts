@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import * as WC from 'woocommerce-api';
+import { CartPage } from '../cart/cart';
 
 import { Storage } from '@ionic/storage';
 
@@ -15,7 +16,7 @@ export class ProductDetailsPage {
   WooCommerce: any;
   reviews: any[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public toastCtrl: ToastController, public modalCtrl: ModalController) {
 
       this.product = this.navParams.get("product");
       console.log(this.product);
@@ -78,6 +79,10 @@ export class ProductDetailsPage {
       })
 
     });
+  }
+
+  openCart(){
+    this.modalCtrl.create(CartPage).present();
   }
 
 

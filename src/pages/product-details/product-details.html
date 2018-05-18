@@ -9,20 +9,30 @@
 
 <ion-content>
 
+<ion-fab right top edge (click)="openCart()">
+  <button ion-fab color="danger"><ion-icon name="cart"></ion-icon></button>
+</ion-fab>
+
+
   <ion-card>
     <ion-slides>
       <ion-slide *ngFor="let image of product.images">
         <img [src]="image.src">
       </ion-slide>
     </ion-slides>
-
+    
+    
     <ion-card-content>
+        <ion-card-title>
+            Rp {{ product.price }}
+          </ion-card-title>
       <ion-card-title>
-        {{ product.title }} &nbsp;
+        {{ product.title }} &nbsp; 
         <ion-chip *ngFor="let cat of product.categories" style="margin-left:5px;">
           <ion-label color="danger">{{ cat }}</ion-label>
         </ion-chip>
       </ion-card-title>
+      
 
       <p [innerHTML]="product.description"></p>
 
