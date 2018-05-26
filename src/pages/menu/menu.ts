@@ -1,8 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import * as WC from 'woocommerce-api';
 import { ProductsByCategoryPage } from '../products-by-category/products-by-category';
+import { SignupPage } from '../signup/signup';
 
 
 @Component({
@@ -53,6 +54,16 @@ export class Menu {
 
   openCategoryPage(category) {
     this.childNavCtrl.setRoot(ProductsByCategoryPage, { "category": category});
+  }
+
+  openPage(pageName: string) {
+    if (pageName=="signup") {
+      this.navCtrl.push(SignupPage);
+    }
+
+
+
+
   }
 
 }
